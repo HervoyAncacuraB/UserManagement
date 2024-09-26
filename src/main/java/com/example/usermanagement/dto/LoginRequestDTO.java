@@ -1,20 +1,38 @@
 package com.example.usermanagement.dto;
 
 
-import lombok.Data;
-
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 
-@Data
+
 public class LoginRequestDTO {
 
-    @NotNull(message="Enter an email")
+    public LoginRequestDTO() {
+    }
+
+    public LoginRequestDTO(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
     @NotEmpty(message="Enter an email")
     private String email;
 
-    @NotNull(message = "Enter a password")
     @NotEmpty(message = "Enter a password")
     private String password;
 
+    public @NotEmpty(message = "Enter an email") String getEmail() {
+        return email;
+    }
+
+    public void setEmail(@NotEmpty(message = "Enter an email") String email) {
+        this.email = email;
+    }
+
+    public @NotEmpty(message = "Enter a password") String getPassword() {
+        return password;
+    }
+
+    public void setPassword(@NotEmpty(message = "Enter a password") String password) {
+        this.password = password;
+    }
 }
